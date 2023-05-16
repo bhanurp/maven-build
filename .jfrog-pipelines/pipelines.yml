@@ -31,7 +31,6 @@ pipelines:
             - name: {{ .Values.artifactory }}
         execution:
           onStart:
-          - which jf
           - which jfrog
           - task: jfrog/setup-jfrog-cli@v0.1.0
             repository: pipelines-tasks-virtual
