@@ -1,4 +1,4 @@
-gitProvider: myGithub
-artifactory: myArtifactory
+gitProvider: gh_int_bhanu
+artifactory: int_default_artifactory
 repoPath: jfrog/jfrog-pipelines-maven-sample
 deployerRepo: quickstarts-maven-local
