@@ -8,6 +8,15 @@ resources:
       path: {{ .Values.repoPath }}
       gitProvider: {{ .Values.gitProvider }}
 
+  - name: mvn_build_task_gitrepo
+    type: GitRepo
+    configuration:
+      path: bhanurp/mvn_build_task
+      gitProvider: {{ .Values.gitIntegration }}
+      branches:
+        include: ^{{ .Values.mainBranch }}$
+      cloneProtocol: https
+
   - name: mvn_build_info
     type: BuildInfo
     configuration:
