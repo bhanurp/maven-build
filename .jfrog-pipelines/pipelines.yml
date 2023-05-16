@@ -39,6 +39,10 @@ pipelines:
             - name: mvn_build_task_gitrepo
           integrations:
             - name: {{ .Values.artifactory }}
+          environmentVariables:
+            readOnly:
+              JFROG_TASK_DEBUG: "true"
+              JFROG_CLI_LOG_LEVEL: DEBUG
         execution:
           onStart:
           - which jfrog
