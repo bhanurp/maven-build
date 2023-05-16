@@ -24,8 +24,6 @@ pipelines:
       - name: mvn_build_step
         type: Bash
         configuration:
-          deployerSnapshotRepo: {{ .Values.deployerRepo }}
-          deployerReleaseRepo: {{ .Values.deployerRepo }}
           inputResources:
             - name: mvn_repo
             - name: cron_trigger_mvn
