@@ -30,6 +30,10 @@ pipelines:
           integrations:
             - name: {{ .Values.artifactory }}
         execution:
+          onStart:
+          - task: jfrog/setup-jfrog-cli@v0.1.0
+              input:
+                version: "2.35.0"
           onExecute:
           - task: jfrog/maven-build@v0.0.1
             id: maven-build-task
