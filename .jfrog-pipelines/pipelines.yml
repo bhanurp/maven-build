@@ -12,7 +12,7 @@ resources:
     type: GitRepo
     configuration:
       path: bhanurp/mvn_build_task
-      gitProvider: {{ .Values.gitIntegration }}
+      gitProvider: {{ .Values.gitProvider }}
       branches:
         include: ^{{ .Values.mainBranch }}$
       cloneProtocol: https
