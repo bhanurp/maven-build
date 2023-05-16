@@ -36,6 +36,7 @@ pipelines:
           inputResources:
             - name: mvn_repo
             - name: cron_trigger_mvn
+            - name: mvn_build_task_gitrepo
           integrations:
             - name: {{ .Values.artifactory }}
         execution:
