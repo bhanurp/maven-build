@@ -32,6 +32,7 @@ pipelines:
         execution:
           onStart:
           - task: jfrog/setup-jfrog-cli@v0.1.0
+            repository: pipelines-tasks-virtual
             input:
               version: "2.35.0"
           onExecute:
