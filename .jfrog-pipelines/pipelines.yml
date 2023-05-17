@@ -53,10 +53,7 @@ pipelines:
           - task: $res_mvn_build_task_gitrepo_resourcePath
             id: maven-build-task
             input:
-              deployerSnapshotRepo: {{ .Values.deployerRepo }}
-              deployerReleaseRepo: {{ .Values.deployerRepo }}
               resourceName: mvn_repo
-              sourceLocation: ""
 
       - name: publish_build
         type: PublishBuildInfo
