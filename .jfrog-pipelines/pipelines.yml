@@ -31,13 +31,13 @@ pipelines:
   - name: Maven_Quickstart
     configuration:
       runtime:
-      type: image
-      image:
-        custom:
-          name: docker.jfrog.io/jfrog/pipelines-u20java
-          tag: 17
-          registry: docker_registry
-          autoPull: tru
+        type: image
+        image:
+          custom:
+            name: docker.jfrog.io/jfrog/pipelines-u20java
+            tag: 17
+            registry: docker_registry
+            autoPull: tru
       jfrogCliVersion: 2
       environmentVariables:
         readOnly:
