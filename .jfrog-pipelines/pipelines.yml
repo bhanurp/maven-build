@@ -35,9 +35,9 @@ pipelines:
         image:
           custom:
             name: docker.jfrog.io/jfrog/pipelines-u20java
-            tag: 17
+            tag: "17"
             registry: docker_registry
-            autoPull: tru
+            autoPull: true
       jfrogCliVersion: 2
       environmentVariables:
         readOnly:
