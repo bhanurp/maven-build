@@ -65,6 +65,7 @@ pipelines:
               deployerReleaseRepo: {{ .Values.deployerRepo }}
               resourceName: mvn_repo
               sourceLocation: ""
+              autoPublishBuildInfo: true
 
       - name: publish_build
         type: PublishBuildInfo
