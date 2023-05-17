@@ -32,9 +32,9 @@ pipelines:
     configuration:
       jfrogCliVersion: 2
       environmentVariables:
-            readOnly:
-              JFROG_TASK_DEBUG: "true"
-              JFROG_CLI_LOG_LEVEL: DEBUG
+        readOnly:
+          JFROG_TASK_DEBUG: "true"
+          JFROG_CLI_LOG_LEVEL: DEBUG
     steps:
       - name: mvn_build_step
         type: Bash
@@ -48,6 +48,7 @@ pipelines:
         execution:
           onStart:
           - which jfrog
+          - jfrog c show
           onExecute:
           - task: $res_mvn_build_task_gitrepo_resourcePath
             id: maven-build-task
