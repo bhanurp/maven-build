@@ -55,8 +55,6 @@ pipelines:
             input:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
               deployerReleaseRepo: {{ .Values.deployerRepo }}
-              resolverSnapshotRepo: quickstart-maven-remote
-              resolverReleaseRepo: quickstart-maven-remote
               resourceName: mvn_repo
               sourceLocation: ""
 
