@@ -66,12 +66,3 @@ pipelines:
               resourceName: mvn_repo
               sourceLocation: ""
               autoPublishBuildInfo: true
-
-      - name: publish_build
-        type: PublishBuildInfo
-        configuration:
-          forceXrayScan: false
-          inputSteps:
-            - name: mvn_build_step
-          outputResources:
-            - name: mvn_build_info
