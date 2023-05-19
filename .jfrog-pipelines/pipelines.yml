@@ -42,6 +42,7 @@ pipelines:
       environmentVariables:
         readOnly:
           JFROG_TASK_DEBUG: "true"
+          JFROG_CLI_LOG_LEVEL: ERROR
     steps:
       - name: mvn_build_step
         type: Bash
@@ -63,6 +64,6 @@ pipelines:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
               deployerReleaseRepo: {{ .Values.deployerRepo }}
               resourceName: mvn_repo
-              mvnCommand: "clean install deploy"
+              mvnCommand: "deploy"
               sourceLocation: ""
               autoPublishBuildInfo: true
