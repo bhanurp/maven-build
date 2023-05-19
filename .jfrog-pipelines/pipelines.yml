@@ -64,6 +64,6 @@ pipelines:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
               deployerReleaseRepo: {{ .Values.deployerRepo }}
               resourceName: mvn_repo
-              mvnCommand: "deploy"
+              mvnCommand: "clean install deploy"
               sourceLocation: ""
               autoPublishBuildInfo: true
