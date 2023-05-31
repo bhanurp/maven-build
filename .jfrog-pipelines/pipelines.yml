@@ -17,7 +17,7 @@ resources:
         include: ^{{ .Values.mainBranch }}$
       cloneProtocol: https
 
-  - name: mvn_publish_task_gitrepo
+  - name: mvn_publish_gitrepo
     type: GitRepo
     configuration:
       path: bhanurp/maven-publish
@@ -53,7 +53,7 @@ pipelines:
       environmentVariables:
         readOnly:
           JFROG_TASK_DEBUG: "true"
-          JFROG_CLI_LOG_LEVEL: ERROR
+          JFROG_CLI_LOG_LEVEL: debug
     steps:
       - name: mvn_build_step
         type: Bash
@@ -62,7 +62,7 @@ pipelines:
             - name: mvn_repo
             - name: cron_trigger_mvn
             - name: mvn_build_task_gitrepo
-            - name: mvn_publish_task_gitrepo
+            - name: mvn_publish_gitrepo
           integrations:
             - name: {{ .Values.artifactory }}
         execution:
@@ -80,7 +80,7 @@ pipelines:
               sourceLocation: ""
               autoPublishBuildInfo: true
 
-          - task: $res_mvn_publish_task_gitrepo_resourcePath
+          - task: $res_mvn_publish_gitrepo_resourcePath
             id: maven-publish-task
             input:
               resourceName: mvn_repo
