@@ -69,6 +69,10 @@ pipelines:
           onStart:
           - which jfrog
           - jfrog c show
+          - task: jfrog/setup-jfrog-cli@v0.1.0
+            input:
+              version: "2.38.2"
+          - jf --version
           onExecute:
           - task: $res_mvn_build_task_gitrepo_resourcePath
             id: maven-build-task
