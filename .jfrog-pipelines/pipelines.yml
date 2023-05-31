@@ -20,7 +20,7 @@ resources:
   - name: mvn_publish_task_gitrepo
     type: GitRepo
     configuration:
-      path: bhanurp/mvn_build_task
+      path: bhanurp/maven-publish
       gitProvider: {{ .Values.gitProvider }}
       branches:
         include: ^{{ .Values.mainBranch }}$
@@ -69,7 +69,7 @@ pipelines:
           - which jfrog
           - jfrog c show
           onExecute:
-          - task: $res_mvn_build_task_gitrepo_resourcePath@0.0.0
+          - task: $res_mvn_build_task_gitrepo_resourcePath
             id: maven-build-task
             input:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
@@ -79,7 +79,7 @@ pipelines:
               sourceLocation: ""
               autoPublishBuildInfo: true
 
-          - task: $res_mvn_publish_task_gitrepo_resourcePath@0.0.0
+          - task: $res_mvn_publish_task_gitrepo_resourcePath
             id: maven-publish-task
             input:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
