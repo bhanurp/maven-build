@@ -36,7 +36,7 @@ resources:
     configuration:
       interval: '*/10 * * * *'
       branches:
-        include: ^master$      
+        include: ^main$      
 
 pipelines:
   - name: Maven_Quickstart
@@ -62,6 +62,7 @@ pipelines:
             - name: mvn_repo
             - name: cron_trigger_mvn
             - name: mvn_build_task_gitrepo
+            - name: mvn_publish_task_gitrepo
           integrations:
             - name: {{ .Values.artifactory }}
         execution:
@@ -82,10 +83,7 @@ pipelines:
           - task: $res_mvn_publish_task_gitrepo_resourcePath
             id: maven-publish-task
             input:
-              deployerSnapshotRepo: {{ .Values.deployerRepo }}
-              deployerReleaseRepo: {{ .Values.deployerRepo }}
               resourceName: mvn_repo
-              mvnCommand: "clean install deploy"
               sourceLocation: ""
               autoPublishBuildInfo: true
               xrayScan: true
