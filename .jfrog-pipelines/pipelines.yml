@@ -69,7 +69,7 @@ pipelines:
           onStart:
           - which jfrog
           - jfrog c show
-          - task: jfrog/setup-jfrog-cli@v0.1.0
+          - task: jfrog/setup-jfrog-cli@v0.0.2
             input:
               version: "2.38.2"
           - jf --version
