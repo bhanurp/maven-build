@@ -17,6 +17,15 @@ resources:
         include: ^{{ .Values.mainBranch }}$
       cloneProtocol: https
 
+  - name: mvn_publish_task_gitrepo
+    type: GitRepo
+    configuration:
+      path: bhanurp/mvn_build_task
+      gitProvider: {{ .Values.gitProvider }}
+      branches:
+        include: ^{{ .Values.mainBranch }}$
+      cloneProtocol: https
+
   - name: mvn_build_info
     type: BuildInfo
     configuration:
@@ -25,7 +34,9 @@ resources:
   - name: cron_trigger_mvn
     type: CronTrigger
     configuration:
-      interval: '0 3 * * *'       
+      interval: '*/10 * * * *'
+      branches:
+        include: ^master$      
 
 pipelines:
   - name: Maven_Quickstart
@@ -67,3 +78,15 @@ pipelines:
               mvnCommand: "clean install deploy"
               sourceLocation: ""
               autoPublishBuildInfo: true
+
+          - task: $res_mvn_publish_task_gitrepo_resourcePath
+            id: maven-publish-task
+            input:
+              deployerSnapshotRepo: {{ .Values.deployerRepo }}
+              deployerReleaseRepo: {{ .Values.deployerRepo }}
+              resourceName: mvn_repo
+              mvnCommand: "clean install deploy"
+              sourceLocation: ""
+              autoPublishBuildInfo: true
+              xrayScan: true
+              failOnScan: false
