@@ -69,7 +69,7 @@ pipelines:
           - which jfrog
           - jfrog c show
           onExecute:
-          - task: $res_mvn_build_task_gitrepo_resourcePath
+          - task: $res_mvn_build_task_gitrepo_resourcePath@0.0.0
             id: maven-build-task
             input:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
@@ -79,7 +79,7 @@ pipelines:
               sourceLocation: ""
               autoPublishBuildInfo: true
 
-          - task: $res_mvn_publish_task_gitrepo_resourcePath
+          - task: $res_mvn_publish_task_gitrepo_resourcePath@0.0.0
             id: maven-publish-task
             input:
               deployerSnapshotRepo: {{ .Values.deployerRepo }}
