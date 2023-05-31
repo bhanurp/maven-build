@@ -89,4 +89,4 @@ pipelines:
               sourceLocation: ""
               autoPublishBuildInfo: true
               xrayScan: true
-              failOnScan: false
+              failOnScan: 
