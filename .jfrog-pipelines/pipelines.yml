@@ -16,6 +16,8 @@ resources:
       branches:
         include: ^{{ .Values.mainBranch }}$
       cloneProtocol: https
+      buildOn:
+        commit: true
 
   - name: mvn_publish_gitrepo
     type: GitRepo
@@ -25,11 +27,15 @@ resources:
       branches:
         include: ^{{ .Values.mainBranch }}$
       cloneProtocol: https
+      buildOn:
+        commit: true
 
   - name: mvn_build_info
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.artifactory }}
+      buildOn:
+        commit: true
       
   - name: cron_trigger_mvn
     type: CronTrigger
