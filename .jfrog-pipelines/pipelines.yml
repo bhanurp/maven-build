@@ -34,8 +34,6 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.artifactory }}
-      buildOn:
-        commit: true
       
   - name: cron_trigger_mvn
     type: CronTrigger
