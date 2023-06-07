@@ -58,6 +58,7 @@ pipelines:
       - name: mvn_build_step
         type: Bash
         configuration:
+          jfrogCliVersion: 2
           inputResources:
             - name: mvn_repo
             - name: cron_trigger_mvn
