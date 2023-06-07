@@ -67,9 +67,9 @@ pipelines:
             - name: {{ .Values.artifactory }}
         execution:
           onStart:
-          - which jfrog
-          - jfrog c show
           - curl -fL https://install-cli.jfrog.io | sh
+          - which jf
+          - jf c show
           - jf --version
           onExecute:
           - task: $res_mvn_build_task_gitrepo_resourcePath
