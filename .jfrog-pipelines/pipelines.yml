@@ -81,6 +81,7 @@ pipelines:
               mvnCommand: "clean install deploy"
               sourceLocation: ""
               autoPublishBuildInfo: true
+              retry: true
 
           - task: $res_mvn_publish_gitrepo_resourcePath
             id: maven-publish-task
@@ -90,3 +91,4 @@ pipelines:
               autoPublishBuildInfo: true
               xrayScan: true
               failOnScan: 
+              retry: true
